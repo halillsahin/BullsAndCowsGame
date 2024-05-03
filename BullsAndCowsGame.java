@@ -5,6 +5,8 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusListener;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -72,7 +74,9 @@ public class BullsAndCowsGame {
         panel2.add(sonuc);
 
         JLabel label = new JLabel("00:00");
-        label.setFont(new Font("Arial", Font.PLAIN, 20));
+        label.setFont(new Font("Arial", Font.PLAIN, 16));
+        label.setBackground(new Color(255,20,20));
+        label.setOpaque(true);
         panel1.add(label);
         Timer timer = new Timer(1000, new ActionListener() {
             int seconds = 0;
@@ -90,15 +94,21 @@ public class BullsAndCowsGame {
             }
         });
         timer.start();
+        JLabel hane=new JLabel("4 DIGIT NUMBER: ");
+        hane.setPreferredSize(new Dimension(140,90));
+        hane.setFont(new Font("Arial", Font.BOLD, 15));
+        panel1.add(hane);
 
         JTextField ekran = new JTextField(5);
         ekran.setEditable(true);
-        ekran.setPreferredSize(new Dimension(60, 30));
-
+        ekran.setPreferredSize(new Dimension(90, 25));
+        
+        
 
         JButton check = new JButton("CHECK");
-        check.setPreferredSize(new Dimension(100, 30));
+        check.setPreferredSize(new Dimension(80, 25));
         check.setEnabled(false);
+        
         panel1.add(ekran);
         panel1.add(check);
 
@@ -128,6 +138,7 @@ public class BullsAndCowsGame {
         });
 
         JButton clear = new JButton("Clear");
+        clear.setPreferredSize(new Dimension(80, 25));
         panel1.add(clear);
         clear.addActionListener(new ActionListener() {
             @Override
@@ -196,21 +207,285 @@ public class BullsAndCowsGame {
         });
 
         JButton sifir = new JButton("0");
+        sifir.setEnabled(true);
         JButton bir = new JButton("1");
+        bir.setEnabled(true);
         JButton iki = new JButton("2");
+        iki.setEnabled(true);
         JButton uc = new JButton("3");
+        uc.setEnabled(true);
         JButton dort = new JButton("4");
+        dort.setEnabled(true);
         JButton bes = new JButton("5");
+        bes.setEnabled(true);
         JButton alti = new JButton("6");
+        alti.setEnabled(true);
         JButton yedi = new JButton("7");
+        yedi.setEnabled(true);
         JButton sekiz = new JButton("8");
+        sekiz.setEnabled(true);
         JButton dokuz = new JButton("9");
+        dokuz.setEnabled(true);
+
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("0")) {
+                    sifir.setEnabled(false);
+                } else {
+                    sifir.setEnabled(true);
+                }
+            }
+        });
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("1")) {
+                    bir.setEnabled(false);
+                } else {
+                    bir.setEnabled(true);
+                }
+            }
+        });
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("2")) {
+                    iki.setEnabled(false);
+                } else {
+                    iki.setEnabled(true);
+                }
+            }
+        });
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("3")) {
+                    uc.setEnabled(false);
+                } else {
+                    uc.setEnabled(true);
+                }
+            }
+        });
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("4")) {
+                    dort.setEnabled(false);
+                } else {
+                    dort.setEnabled(true);
+                }
+            }
+        });
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("5")) {
+                    bes.setEnabled(false);
+                } else {
+                    bes.setEnabled(true);
+                }
+            }
+        });
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("6")) {
+                    alti.setEnabled(false);
+                } else {
+                    alti.setEnabled(true);
+                }
+            }
+        });
+
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("7")) {
+                    yedi.setEnabled(false);
+                } else {
+                    yedi.setEnabled(true);
+                }
+            }
+        });
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("8")) {
+                    sekiz.setEnabled(false);
+                } else {
+                    sekiz.setEnabled(true);
+                }
+            }
+        });
+        ekran.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButtonState();
+            }
+
+            private void updateButtonState() {
+                if (ekran.getText().contains("9")) {
+                    dokuz.setEnabled(false);
+                } else {
+                    dokuz.setEnabled(true);
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
 
         sifir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!ekran.getText().contains("0")){
-                    ekran.setText(ekran.getText() + "0");
+                    ekran.setText(ekran.getText()+"0");
                 }
             }
         });
